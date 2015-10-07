@@ -13,6 +13,12 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin Songs/Acruta Lao Dnor.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Songs/Acruta Lao Dnor.mp3
+
 #begin Sounds/cymbalTing.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -37,9 +43,9 @@
 /processorParam:Quality=Best
 /build:Sounds/top.wav
 
-#begin Songs/Acruta Lao Dnor.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Songs/Acruta Lao Dnor.mp3
+#begin Fonts/message.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:Fonts/message.spritefont
 

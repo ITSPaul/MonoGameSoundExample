@@ -13,10 +13,12 @@ namespace SoundExample
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        SoundEffect music;
         Song BackingTrack;
         SoundEffect cymbol, kick, snare, top;
+        SoundEffect _music;
+        SoundEffectInstance _mplayer;
         KeyboardState oldKeyState;
+        SpriteFont _font;
 
         public Game1()
         {
@@ -50,8 +52,16 @@ namespace SoundExample
             snare = Content.Load<SoundEffect>(@"Sounds/snare");
             kick = Content.Load<SoundEffect>(@"Sounds/kick");
             top = Content.Load<SoundEffect>(@"Sounds/top");
-            
+            _font = Content.Load<SpriteFont>(@"Fonts/message");
+            //_music = Content.Load<SoundEffect>(@"Songs/Acruta Lao Dnor");
+
+
             MediaPlayer.Play(BackingTrack);
+            
+
+            
+            _mplayer = top.CreateInstance();
+            
             // TODO: use this.Content to load your game content here
         }
 
@@ -82,6 +92,15 @@ namespace SoundExample
                     MediaPlayer.Pause();
                 else MediaPlayer.Resume();
             }
+
+            if (oldKeyState.IsKeyDown(Keys.Subtract) && kstate.IsKeyUp(Keys.Subtract))
+                if (MediaPlayer.Volume > 0.2f)
+                    MediaPlayer.Volume -= 0.1f;
+
+            if (oldKeyState.IsKeyDown(Keys.Add) && kstate.IsKeyUp(Keys.Add))
+                if (MediaPlayer.Volume < 1f)
+                    MediaPlayer.Volume += 0.1f;
+
             if (oldKeyState.IsKeyDown(Keys.S) && kstate.IsKeyUp(Keys.S))
             {
                 snare.Play();
@@ -99,7 +118,9 @@ namespace SoundExample
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            spriteBatch.Begin();
+            spriteBatch.DrawString(_font, MediaPlayer.Volume.ToString(), new Vector2(10,10), Color.White);
+            spriteBatch.End();
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
