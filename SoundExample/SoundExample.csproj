@@ -50,10 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Songs\Acruta Lao Dnor.mp3" />
+    <Content Include="Content\Sounds\cymbalTing.wav" />
+    <Content Include="Content\Sounds\kick.wav" />
+    <Content Include="Content\Sounds\snare.wav" />
+    <Content Include="Content\Sounds\top.wav" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Content\Fonts\message.spritefont" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
